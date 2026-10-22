@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f5f3ed;
+  background: #10100f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  color: #10100f;
+  background: #d8ff3e;
+}
+
+/* AURA editorial polish */
+:root {
+  --aura-ink: #10100f;
+  --aura-lime: #d8ff3e;
+  --aura-paper: #f5f3ed;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--aura-ink); }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease; }
+button:active { transform: scale(.985); }
+
+.aura-page {
+  position: relative;
+  isolation: isolate;
+  background-image: radial-gradient(ellipse at 72% 20%, rgba(216,255,62,.045), transparent 32%), linear-gradient(180deg, #111110 0%, #10100f 48%, #0d0d0c 100%);
+}
+.aura-page::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 760px;
+  content: '';
+  pointer-events: none;
+  opacity: .16;
+  background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+.aura-header {
+  background: rgba(16,16,15,.78);
+  backdrop-filter: blur(18px);
+  border-color: rgba(255,255,255,.09);
+}
+.aura-header > a { letter-spacing: -.09em; }
+.aura-home { animation: aura-content-in .8s cubic-bezier(.2,.7,.2,1) both; }
+.aura-headline { max-width: 850px; text-wrap: balance; }
+.aura-headline span { text-shadow: 0 0 34px rgba(216,255,62,.12); }
+.aura-stage {
+  isolation: isolate;
+  border-radius: 3px;
+  border-color: rgba(255,255,255,.13);
+  background: radial-gradient(ellipse at 52% 52%, rgba(216,255,62,.085), transparent 38%), linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.006) 48%, rgba(216,255,62,.018));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 22px 80px rgba(0,0,0,.18);
+}
+.aura-stage::before, .aura-stage::after { position: absolute; z-index: 0; content: ''; pointer-events: none; }
+.aura-stage::before {
+  inset: 0;
+  opacity: .25;
+  background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 72%);
+}
+.aura-stage::after {
+  width: 260px; height: 260px; left: 50%; top: 52%; transform: translate(-50%,-50%);
+  border: 1px solid rgba(216,255,62,.11); border-radius: 50%;
+  box-shadow: 0 0 0 36px rgba(216,255,62,.018), 0 0 0 72px rgba(216,255,62,.012);
+}
+.aura-stage canvas { position: relative; z-index: 1; }
+.aura-intro {
+  position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--aura-paper); background: #10100f; animation: aura-intro-exit .45s ease 1.05s forwards;
+}
+.aura-intro::before {
+  position: absolute; inset: 0; content: ''; pointer-events: none; opacity: .18;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 72%);
+}
+.aura-intro-mark { position: relative; font-family: Syne, sans-serif; font-size: clamp(3.6rem, 10vw, 7rem); font-weight: 800; line-height: .9; letter-spacing: -.105em; animation: aura-mark-in .75s cubic-bezier(.16,1,.3,1) both; }
+.aura-intro-mark span { color: var(--aura-lime); }
+.aura-intro-caption { position: relative; margin-top: 22px; font-size: 9px; letter-spacing: .32em; color: rgba(245,243,237,.48); animation: aura-content-in .6s .12s both; }
+.aura-intro-track { position: relative; width: 150px; height: 2px; margin-top: 42px; overflow: hidden; background: rgba(255,255,255,.12); }
+.aura-intro-track span { display: block; width: 100%; height: 100%; background: var(--aura-lime); transform-origin: left; animation: aura-progress 1.1s cubic-bezier(.65,0,.35,1) both; }
+.aura-intro-bottom { position: absolute; right: 24px; bottom: 22px; left: 24px; display: flex; justify-content: space-between; font-size: 8px; letter-spacing: .2em; color: rgba(245,243,237,.32); }
+@keyframes aura-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes aura-mark-in { from { opacity: 0; transform: translateY(18px) scale(.97); filter: blur(8px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+@keyframes aura-content-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes aura-intro-exit { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+@media (max-width: 639px) {
+  .aura-home { padding-top: 26px; }
+  .aura-headline { font-size: clamp(2.25rem, 10vw, 3.3rem); line-height: .98; }
+  .aura-stage { border-radius: 2px; }
+  .aura-stage::after { width: 170px; height: 170px; box-shadow: 0 0 0 24px rgba(216,255,62,.018), 0 0 0 48px rgba(216,255,62,.012); }
+}
